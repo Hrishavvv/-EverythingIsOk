@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesthetic Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .rocket-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin-bottom: 40px;
+    }
+
+    .rocket {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      text-align: center;
+      transition: transform 0.5s ease;
+      cursor: pointer;
+      animation: rocketAnimation 2s infinite linear;
+    }
+
+    .rocket:hover {
+      transform: rotate(360deg);
+    }
+
+    .rocket.clicked {
+      animation: none;
+      transform: scale(0);
+    }
+
+    .image-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    .rocket-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .message {
+      font-size: 24px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      font-family: 'GitHub', monospace;
+    }
+
+    .click-text {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: monospace;
+    }
+
+    .footer {
+      font-size: 16px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      font-family: monospace;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+    }
+
+    @keyframes rocketAnimation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes messageAnimation {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes footerAnimation {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="click-text">
+      CLICK ME BABE ;)
+    </div>
+    <div class="rocket-container">
+      <div class="rocket">
+        <div class="image-container">
+          <img class="rocket-image" src="lmfao.gif" alt="Custom Rocket Image">
+        </div>
+      </div>
+    </div>
+    <pre class="message">
+<code>
+Chal na Chutiye
+Jaake padhai kar na bc😂
+</code>
+    </pre>
+    <footer class="footer">
+      Developed by Hrishav
+    </footer>
+  </div>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script>
+    const rocket = document.querySelector('.rocket');
+    const message = document.querySelector('.message');
+    const footer = document.querySelector('.footer');
+
+    rocket.addEventListener('click', () => {
+      rocket.classList.add('clicked');
+      message.style.animation = 'messageAnimation 1s forwards';
+      footer.style.animation = 'footerAnimation 1s forwards';
+    });
+  </script>
+</body>
+</html>
